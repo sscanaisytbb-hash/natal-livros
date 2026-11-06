@@ -4,7 +4,6 @@ import { SnowParticles } from './components/SnowParticles';
 import { HeroCarousel } from './components/HeroCarousel';
 import { CountdownTimer } from './components/CountdownTimer';
 import { FAQAccordion } from './components/FAQAccordion';
-import { PixelManagerDrawer } from './components/PixelManagerDrawer';
 import {
   SYNCPAY_CHECKOUT_URL,
   initMetaPixel,
