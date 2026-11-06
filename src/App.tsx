@@ -50,8 +50,7 @@ export default function App() {
       <SnowParticles />
 
       {/* Ferramenta de configuração e teste do Meta Pixel para o proprietário */}
-      <PixelManagerDrawer />
-
+  
       {/* ========================================================= */}
       {/* HERO SECTION                                             */}
       {/* ========================================================= */}
