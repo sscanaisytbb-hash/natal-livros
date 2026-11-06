@@ -1,0 +1,364 @@
+@import "tailwindcss";
+
+:root {
+  --sp: 20px;
+  --bg: #050505;
+  --red: #B3131B;
+  --green: #0D5C3B;
+  --gold: #D9A441;
+  --text: #F6EEE0;
+  --mute: #b9ae9c;
+  --card: #0e0e0e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.font-garamond {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Preço chamativo e vibrante idêntico à página original */
+.price-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1023px) {
+  .price-row {
+    align-items: center;
+    text-align: center;
+    margin: 8px auto 24px;
+  }
+}
+
+.price-old {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #eeeeee;
+  opacity: 0.65;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.price-now {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(54px, 11vw, 78px);
+  line-height: 1;
+  color: #39FF14;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.55), 0 0 30px rgba(57, 255, 20, 0.3);
+  display: inline-block;
+}
+
+@media (max-width: 639px) {
+  .price-now {
+    font-size: clamp(52px, 16vw, 72px);
+  }
+}
+
+.price-box-now {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(56px, 14vw, 84px);
+  line-height: 1;
+  color: #39FF14;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.65), 0 0 35px rgba(57, 255, 20, 0.35);
+  margin: 6px 0 12px;
+  display: inline-block;
+}
+
+.price-final-now {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(54px, 14vw, 78px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #39FF14;
+  white-space: nowrap;
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.65), 0 0 35px rgba(57, 255, 20, 0.35);
+  margin-bottom: 28px;
+  display: inline-block;
+}
+
+/* Brilhos de fundo */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.g-red {
+  background: rgba(179, 19, 27, 0.35);
+}
+
+.g-green {
+  background: rgba(13, 92, 59, 0.45);
+}
+
+/* Botões com efeito de pulsar e brilho que passa */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #fff;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #d11a24, var(--red));
+  box-shadow: 0 0 0 1px rgba(217, 164, 65, 0.6), 0 8px 30px rgba(179, 19, 27, 0.55);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: pulse-cta 2.6s infinite;
+}
+
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: shine-cta 3.4s infinite;
+}
+
+.btn-cta:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 1px var(--gold), 0 12px 42px rgba(217, 164, 65, 0.45);
+}
+
+.btn-cta:active {
+  transform: scale(0.97);
+}
+
+@keyframes shine-cta {
+  0%, 60% {
+    left: -70%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+@keyframes pulse-cta {
+  50% {
+    box-shadow: 0 0 0 1px rgba(217, 164, 65, 0.8), 0 8px 46px rgba(179, 19, 27, 0.85);
+  }
+}
+
+/* Selo animado flutuante */
+.seal {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e8b955, #a8782a);
+  color: #1a0b00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.15;
+  box-shadow: 0 0 30px rgba(217, 164, 65, 0.6);
+  animation: seal-float 5s ease-in-out infinite;
+}
+
+@keyframes seal-float {
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+/* Selo de garantia */
+.gseal {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px double var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(217, 164, 65, 0.18), transparent 70%);
+  animation: seal-float 6s ease-in-out infinite;
+}
+
+/* Faixa rolante (marquee) */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Papai Noel flutuante no céu */
+#santa-sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  contain: layout paint;
+  isolation: isolate;
+}
+
+#santa-sky .santa-flight {
+  position: absolute;
+  left: 0;
+  top: 18%;
+  width: clamp(280px, 31vw, 460px);
+  opacity: 0;
+  will-change: transform;
+  animation: santa-crossing 32s linear -3s infinite;
+}
+
+#santa-sky svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#santa-sky .santa-wave {
+  transform-origin: 137px 101px;
+  animation: santa-hello 1.25s ease-in-out infinite;
+}
+
+#santa-sky .santa-deer {
+  animation: santa-gallop 1.8s ease-in-out infinite;
+}
+
+#santa-sky .santa-deer-second {
+  animation-delay: -0.6s;
+}
+
+#santa-sky .santa-deer-third {
+  animation-delay: -1.2s;
+}
+
+#santa-sky .santa-sleigh {
+  animation: santa-glide 3s ease-in-out infinite;
+}
+
+@keyframes santa-crossing {
+  0% {
+    transform: translate3d(-110%, 4vh, 0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.72;
+  }
+  33% {
+    transform: translate3d(calc(50vw - 50%), -5vh, 0);
+    opacity: 0.72;
+  }
+  66% {
+    transform: translate3d(calc(100vw + 10%), 3vh, 0);
+    opacity: 0.72;
+  }
+  67%, 100% {
+    transform: translate3d(calc(100vw + 10%), 3vh, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes santa-hello {
+  0%, 100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(17deg);
+  }
+}
+
+@keyframes santa-gallop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes santa-glide {
+  0%, 100% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Floating emojis */
+@keyframes float-emoji {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(4deg);
+  }
+}
+
+.fl-emoji {
+  animation: float-emoji 7s ease-in-out infinite;
+  will-change: transform;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Combo Natal sem Telas - Página Oficial de Vendas",
+  "description": "Página oficial de vendas do Combo Natal sem Telas. Atividades infantis educativas e divertidas prontas para imprimir para um Natal longe das telas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
